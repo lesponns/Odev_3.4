@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -18,13 +18,13 @@ namespace Odev_3._4
             ardından program toplam fiyatı hesaplayacak ve ekrana yazdıracaktır.
             */
 
-            //Get the exit key from the user.
+            //Exit code "0"
 
-            int input = 0, last = 0, stopcode;//Değişkenlerin kayıdı ve ataması yapılıyor.
+            int input = 1, last = 0;//Değişkenlerin kayıdı ve ataması yapılıyor.
 
-            Console.Write("Sepeti onaylamak için gireceğiniz kod[Sayı]: ");//Çıkış yapmak için kullanıcıdan şifre istenmesi
-            stopcode = int.Parse(Console.ReadLine());//Kullanıcıdan şifrenin alınıp değişkene kaydedilmesi
-            while (input != stopcode) //Girilen değer Kullanıcı şifresine eşit değilse veri girişine devam edilir.
+            Console.WriteLine("Send for exit '0': ");//Çıkış yapmak için kullanıcıdan "0" girmesini bildirmek.
+            
+            while (input != 0) //Girilen değer Kullanıcı şifresine eşit değilse veri girişine devam edilir.
             {
                 for (int i = 1; i < 1000; i++)//Sepete eklenecek ürünler 1.000 adet ile sınırlandırılmıştır.
                 {
@@ -32,10 +32,11 @@ namespace Odev_3._4
                     input = int.Parse(Console.ReadLine());//Fiyatın değişkene kayıdı
 
                     last = last + input;//Toplamın hesaplanması
-                    if (input == stopcode)//Kullanıcı şifresi ile çıkış için girilen değer kontrol ediliyor.
+                    if (input == 0)//Çıkış için girilen değer kontrol ediliyor.
                     {
-                        Console.WriteLine("Sepetinizin toplam fiyatı: " + last 
-                        + "\n\nPress any button for exit.");//Sonuç yazdırılıyor. Ve çıkış yolu gösteriliyor.
+                        Console.WriteLine("\nSepetinizin toplam fiyatı: " + last +" USD"
+                        + "\nİyi Günler diler, yine bekleriz." +
+                        "\n\nPress any button for exit.");//Sonuç yazdırılıyor. Ve çıkış yolu gösteriliyor.
                         Console.ReadKey();//Bir tuşa basılana kadar bekleniyor.
                         break;//while döngüsünden çıkabilmek için break; komutu kullanılıyor. Ve döngü tamamlanıyor.
                     }
